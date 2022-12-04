@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,16 +12,16 @@ namespace HashTableDataStructure
         static void Main(string[] args)
         {
             Console.WriteLine("Hash table program");
-            MyMapNode<string, string> hash = new MyMapNode<string, string>(5);
-            hash.Add("0", "To");                                                    
-            hash.Add("1", "be");
-            hash.Add("2", "or");
-            hash.Add("3", "not");
-            hash.Add("4", "to");
-            hash.Add("5", "be");
-
-            string hash5 = hash.Get("5");
-            Console.WriteLine(hash5);
+          
+            MyMapNode<string, int> hashTabe = new MyMapNode<string, int>(6);
+            string paragraph = "Paranoids are not paranoid " +
+                        "because they are paranoid but " +
+                        "because they keep putting themselves " +
+                        "deliberately into paranoid avoidable " +
+                        "situations";
+             hashTabe.CountNumbOfOccurence(paragraph);
+           
+            
             Console.ReadLine();
 
         }
