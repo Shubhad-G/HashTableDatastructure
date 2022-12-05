@@ -69,6 +69,52 @@ namespace HashTableDataStructure
                 linkedList.Remove(foundItem);
             }
         }
+        public bool Exists(K key)
+        {
+            var linkedList = GetLinkedList(GetArrayPosition(key));
+            foreach (KeyValue<K, V> item in linkedList)
+            {
+                if (item.Key.Equals(key))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
+
+        public void Display()
+        {
+            foreach (var linkedList in items)
+            {
+                if (linkedList != null)
+                    foreach (var element in linkedList)
+                    {
+                        string res = element.ToString();
+                        if (res != null)
+                            Console.WriteLine(element.Key + " " + element.Value);
+                    }
+            }
+        }
+
+
+
+
+        public void CountNumbOfOccurence(string paragraph)
+        {
+            MyMapNode<string, int> hashTabe = new MyMapNode<string, int>(6);
+            string[] words = paragraph.Split(' ');
+            foreach (string word in words)
+            {
+                if (hashTabe.Exists(word.ToLower()))
+                    hashTabe.Add(word.ToLower(), hashTabe.Get(word.ToLower()) + 1);
+                else
+                    hashTabe.Add(word.ToLower(), 1); //to,1 
+            }
+            Console.WriteLine("Words and their frequency of occurrences ");
+            hashTabe.Display();
+        }
         public struct KeyValue<k,v>
         {
             public K Key { get; set; }
