@@ -45,15 +45,15 @@ namespace HashTableDataStructure
         }
         public void Add(K key,V value)//method add the data in the hash table 
         {
-            int position = GetArrayPosition(key);
-            LinkedList<KeyValue<K,V>> linkedList=GetLinkedList(position);
+            int position = GetArrayPosition(key);//postion or index value of the hash table 
+            LinkedList<KeyValue<K,V>> linkedList=GetLinkedList(position);//linked list present on that position or index 
             KeyValue<K,V> item= new KeyValue<K, V>() { Key=key,Value=value };
-            linkedList.AddLast(item);
+            linkedList.AddLast(item);//here we add the item to that linked list present in the hash table of that position or index
         }
         public void Remove(K key)//method to remove the data from the hash table
         {
-            int position = GetArrayPosition(key);
-            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);
+            int position = GetArrayPosition(key);//postion or index value of the hash table 
+            LinkedList<KeyValue<K, V>> linkedList = GetLinkedList(position);//linked list present on that position or index
             bool itemFound = false;
             KeyValue<K,V> foundItem = default(KeyValue<K,V>);
             foreach(KeyValue<K,V> item in linkedList)
