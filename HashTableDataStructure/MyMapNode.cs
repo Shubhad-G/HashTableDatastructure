@@ -10,12 +10,12 @@ namespace HashTableDataStructure
     {
         int size;//size of the hash table
       private readonly LinkedList<KeyValue<K, V>>[] items;
-        public MyMapNode(int size)//size of array is initialized in the constructor
+        public MyMapNode(int size)//size of array(hash table) is initialized in the constructor
         {
             this.size = size;
             items=new LinkedList<KeyValue<K, V>>[size];//here initialize the items linkedlist variable
         }
-        public int GetArrayPosition(K key)//method for calculating the array(hash table) position to insert or retrieve the value from the hash table based on the key
+        public int GetArrayPosition(K key)//method for calculating the array(hash table) position to insert or retrieve the value from the hash table based on the key(since the hash table memory index is not continous like array but it is calculated based on the key)
         {
             int position=key.GetHashCode()%size;//here GetHashCode() is the built in fuction which is used to calculate the modulus with size
             return Math.Abs(position);//to get absulute integer value (since key can be anything like string or floating point number but we have to convert it to integer value so that index positon can be calculated)
